@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { getEasyPanelProject } from '@/lib/actions/easypanel';
 
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
@@ -16,7 +17,9 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
       include: { users: true },
     });
 
-    return NextResponse.json(project);
+    const easypanelProject = await getEasyPanelProject({ projectName: project.id });
+
+    return NextResponse.json({ project, easypanelProject });
   } catch (error) {
     return NextResponse.json({ message: 'Problem when query Project by Id', error });
   }

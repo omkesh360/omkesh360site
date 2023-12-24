@@ -10,12 +10,24 @@ import {
   Flex,
   Heading,
   Link,
+  Skeleton,
   Stack,
   Text,
 } from '@/components/chakra';
-import { useAuth, useColorModeValue } from '@/hooks';
+import { useAuth, useColorModeValue, useParams, useSWR } from '@/hooks';
+import { IInspectedProject, IService } from 'easypanel.js';
 import { ExternalLinkIcon } from '@/icons';
 import { Project } from '@/types';
+
+const getDomain = (s: IService) => {
+  const primaryDomain = s.domains?.[0];
+
+  if (!primaryDomain) {
+    throw new Error('No primary domain found');
+  }
+
+  return `https://${primaryDomain.host}`;
+};
 
 export type QuickLinksProps = {
   data: Project;
@@ -24,10 +36,23 @@ export type QuickLinksProps = {
 };
 
 // We will continue to work on this soon
-export const QuickLinks = ({ data, easypanelUrl }: QuickLinksProps) => {
+export const QuickLinks = ({ easypanelUrl }: QuickLinksProps) => {
+  const { id: projectId }: { id: string } = useParams();
+
   const { isAdmin } = useAuth();
 
   const footerBorder = useColorModeValue('gray.200', 'gray.600');
+
+  const { data, isLoading } = useSWR<{
+    project: Project;
+    easypanelProject: IInspectedProject;
+  }>(`/api/projects/${projectId}`);
+
+  if (!data || isLoading) {
+    return <Skeleton h="100px" />;
+  }
+
+  const { project, easypanelProject } = data;
 
   return (
     <>
@@ -44,25 +69,29 @@ export const QuickLinks = ({ data, easypanelUrl }: QuickLinksProps) => {
                   colorScheme="green"
                   target="_blank"
                   as={Link}
-                  href={`${easypanelUrl}/projects/${data.id}`}
+                  href={`${easypanelUrl}/projects/${project.id}`}
                   variant="outline"
                 >
                   Go to EasyPanel project
                 </Button>
               )}
 
-              {data.customDomain && (
-                <Button
-                  as={Link}
-                  target="_blank"
-                  variant="outline"
-                  colorScheme="blue"
-                  rightIcon={<ExternalLinkIcon />}
-                  href={`https://${data.customDomain}`}
-                >
-                  Go to website
-                </Button>
-              )}
+              {easypanelProject &&
+                easypanelProject.services
+                  .filter((s) => s.name === 'blender')
+                  .map((s) => (
+                    <Button
+                      rightIcon={<ExternalLinkIcon />}
+                      href={getDomain(s)}
+                      colorScheme="blue"
+                      variant="outline"
+                      target="_blank"
+                      key={s.name}
+                      as={Link}
+                    >
+                      Go to Blender service
+                    </Button>
+                  ))}
             </Stack>
           </Stack>
         </CardBody>

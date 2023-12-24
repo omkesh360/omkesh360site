@@ -112,6 +112,7 @@ export const CreateNewButton = ({ isDisabled }: CreateNewButtonProps) => {
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
+      console.log('### error: ', { error });
       addToast({
         status: 'error',
         title: `Problem while creating project. ${error.message}`,

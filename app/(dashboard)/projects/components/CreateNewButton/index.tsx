@@ -149,7 +149,7 @@ export const CreateNewButton = ({ isDisabled }: CreateNewButtonProps) => {
 
           <ModalBody pb={6}>
             <Stack spacing={3}>
-              {templates.length > 1 && (
+              {templates.length > 0 && (
                 <FormControl isDisabled={isLoading}>
                   <FormLabel>Template</FormLabel>
                   <Select

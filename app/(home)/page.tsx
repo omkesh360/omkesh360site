@@ -17,9 +17,9 @@ export default async function HomePage() {
 
       <Features />
 
-      <PricingSection />
+      {/* <PricingSection /> */}
 
-      <Highlights />
+      {/* <Highlights /> */}
 
       <FAQs />
     </Box>

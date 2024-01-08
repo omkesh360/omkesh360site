@@ -27,7 +27,7 @@ This template includes the following:
 
 ## Demo
 
-https://platform.JeevOps.website
+https://platform.jeevops.com
 
 
 ## Getting Started

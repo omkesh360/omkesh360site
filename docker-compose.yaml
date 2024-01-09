@@ -1,9 +1,8 @@
 version: "3.8"
-name: sieutoc-platform
 
 services:
   postgres:
-    container_name: sieutoc-platform-postgres
+    container_name: jeevops-platform-postgres
     image: postgres:16-alpine
     restart: always
     ports:
@@ -23,13 +22,13 @@ services:
       retries: 3
 
   redis:
-    container_name: sieutoc-platform-redis
+    container_name: jeevops-platform-redis
     image: redis:7-alpine
     ports:
       - "6379:6379"
 
   mailpit:
-    container_name: sieutoc-platform-mailpit
+    container_name: jeevops-platform-mailpit
     image: axllent/mailpit:latest
     restart: always
     ports:

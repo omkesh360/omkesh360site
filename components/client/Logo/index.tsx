@@ -30,7 +30,7 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>(
             src={`/${colorMode}.svg`}
             {...calculateSize(size)}
             placeholder="empty"
-            alt="Sieutoc Logo"
+            alt="JeevOps Logo"
             priority
           />
         </NextLink>

@@ -1,6 +1,6 @@
-<img alt="Sieutoc" src="https://github.com/websitesieutoc/platform/assets/1083478/85190f2c-a300-4f2d-bbb2-00cc632c80cf">
+<img alt="JeevOps" src="https://github.com/websitesieutoc/platform/assets/1083478/85190f2c-a300-4f2d-bbb2-00cc632c80cf">
 
-<h1 align="center">Sieutoc Platform</h1>
+<h1 align="center">JeevOps Platform</h1>
 
 <p align="center">
     Create modern apps easier
@@ -27,7 +27,7 @@ This template includes the following:
 
 ## Demo
 
-https://platform.sieutoc.website
+https://platform.jeevops.com
 
 
 ## Getting Started
@@ -48,7 +48,7 @@ You can either use this template by:
 - Or using the script below:
 
 ```bash
-npx tiged websitesieutoc/platform your-project
+npx tiged jeevops-lab/platform your-project
 ```
 
 Optional: Search and replace `platform` with your project slug.

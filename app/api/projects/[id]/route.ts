@@ -9,7 +9,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
 
     const projectId = decodeURIComponent(params.id);
 
-    const project = await prisma.project.findUnique({
+    const project = await prisma.project.findUniqueOrThrow({
       where: {
         id: projectId,
         users: isAdmin ? {} : { some: { id: session.user.id } },

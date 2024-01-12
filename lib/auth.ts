@@ -57,7 +57,7 @@ export const authOptions: NextAuthOptions = {
           pass: process.env.SMTP_PASSWORD,
         },
       },
-      from: process.env.EMAIL_FROM ?? 'noreply@sieutoc.website',
+      from: process.env.EMAIL_FROM ?? 'noreply@jeevops.com',
       async sendVerificationRequest({ identifier, url }) {
         const magicTemplate = MagicLinkTemplate({
           confirmUrl: url,
@@ -66,7 +66,7 @@ export const authOptions: NextAuthOptions = {
 
         await sendEmail({
           to: identifier,
-          subject: 'Login to Sieutoc ⚡',
+          subject: 'Login to JeevOps ⚡',
           html: render(magicTemplate),
           text: render(magicTemplate, { plainText: true }),
         });

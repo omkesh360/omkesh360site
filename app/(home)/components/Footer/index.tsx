@@ -35,16 +35,16 @@ const footerLinkColumns: { title: string; links: FooterLink[] }[] = [
   {
     title: 'Community',
     links: [
-      { label: 'Discord', url: 'https://discord.gg/YFKjGjDgnb', isExternal: true },
-      { label: 'Twitter', url: 'https://twitter.com/SieutocWebsite', isExternal: true },
+      { label: 'Discord', url: 'https://discord.gg/R7X4nJBwAy', isExternal: true },
+      { label: 'Twitter', url: 'https://discord.gg/R7X4nJBwAy', isExternal: true },
       {
         label: 'Facebook',
-        url: 'https://www.facebook.com/sieutoc.website',
+        url: 'https://discord.gg/R7X4nJBwAy',
         isExternal: true,
       },
       {
         label: 'GitHub',
-        url: 'https://github.com/websitesieutoc/platform',
+        url: 'https://discord.gg/R7X4nJBwAy',
         isExternal: true,
       },
     ],

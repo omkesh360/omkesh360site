@@ -34,6 +34,14 @@ services:
     ports:
       - "1025:1025"
       - "8025:8025"
+  web-app:
+    container_name: jeevops-platform-web-app
+    build: .
+    image: test2:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
 
 volumes:
   data:

@@ -1,4 +1,4 @@
-<img alt="JeevOps" src="https://github.com/websitesieutoc/platform/assets/1083478/85190f2c-a300-4f2d-bbb2-00cc632c80cf">
+
 
 <h1 align="center">JeevOps Platform</h1>
 

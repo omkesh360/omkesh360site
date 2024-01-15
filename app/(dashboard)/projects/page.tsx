@@ -1,23 +1,9 @@
 import { Flex, Heading, Skeleton, Wrap, WrapItem } from '@/components/chakra';
-// import { Suspense } from 'react';import { MAX_PROJECTS } from '@/lib/constants';
-// import { getSession } from '@/lib/auth';
-// import { prisma } from '@/lib/prisma';
-// import { UserRole } from '@/types';
+import { Suspense } from 'react';
+
 import { CreateNewButton, Projects } from './components';
 
 export default async function ProjectsPageView() {
-  // const { session } = await getSession();
-
-  // const isAdmin = session?.user?.role === UserRole.ADMIN;
-
-  // const projectsNum = await prisma.project.count({
-  //   where: isAdmin ? {} : { users: { some: { id: session?.user.id } } },
-  // });
-
-  // const displayProjects = isAdmin ? projectsNum : `${projectsNum}/${MAX_PROJECTS}`;
-
-  // const isDisabledNewProject = isAdmin ? false : projectsNum === MAX_PROJECTS;
-
   return (
     <Flex width="100%" direction="column" gap={6}>
       <Flex
@@ -29,11 +15,9 @@ export default async function ProjectsPageView() {
         gap={6}
       >
         <Heading as="h1" size="lg">
-          {/* Projects ({displayProjects}) */}
           Projects
         </Heading>
 
-        {/* <CreateNewButton isDisabled={isDisabledNewProject} /> */}
         <CreateNewButton />
       </Flex>
       <Suspense
@@ -47,7 +31,6 @@ export default async function ProjectsPageView() {
           </Wrap>
         }
       >
-        {/* <Projects limit={9} /> */}
         <Projects />
       </Suspense>
     </Flex>

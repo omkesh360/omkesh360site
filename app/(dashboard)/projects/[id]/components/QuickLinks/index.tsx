@@ -76,20 +76,17 @@ export const QuickLinks = ({ easypanelUrl }: QuickLinksProps) => {
                 </Button>
               )}
 
-              {easypanelProject &&
-                easypanelProject.services
-                  .filter((s) => s.name === 'blender')
-                  .map((s) => (
+              {easypanelProject && easypanelProject.services.map((s) => (
                     <Button
+                      key={s.name}  // Unique key for each service
                       rightIcon={<ExternalLinkIcon />}
                       href={getDomain(s)}
                       colorScheme="blue"
                       variant="outline"
                       target="_blank"
-                      key={s.name}
                       as={Link}
                     >
-                      Go to Blender service
+                      Go to {s.name} service
                     </Button>
                   ))}
             </Stack>
